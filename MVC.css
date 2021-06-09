@@ -1,0 +1,16 @@
+#visningsDiv{
+    border: black solid 2px;
+    height: 20px;
+    width: 100px;
+}
+#showBNames{
+    border: black solid 2px;
+    flex;
+}
+#showGNames{
+    border: black solid 2px;
+    flex;
+}
+body {
+    background-color: aqua;
+}
