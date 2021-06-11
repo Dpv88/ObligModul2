@@ -33,6 +33,7 @@ function viewTwo(){
                     </div>
                     <div id="showBNames">${getNames('maleNames')}</div>
                     <div id="showGNames">${getNames('femaleNames')}</div>
+                    <div id="newline"></div>
                     <button onclick="goToPage(0)">Gå tilbake til randomnavn side</button>
 `}
 

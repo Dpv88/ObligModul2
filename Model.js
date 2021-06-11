@@ -153,5 +153,6 @@ const model = {
         radioFemaleChecked: false,
         radioDeleteChecked: false
 
-    }
+    },
+    alphabet:'abcdefghijklmnopqrstuvwxyzæøå'
 }

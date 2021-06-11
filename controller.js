@@ -50,9 +50,11 @@ function getNames(li) {
     }
     let names = [];
     for (let i=0; i<model[li].length; i++){
-        names.push(`<span onclick="clickname('${li}',${i})">${model[li][i].name}</span>`);
+        names.push(`<li><span onclick="clickname('${li}',${i})">${model[li][i].name}</span></li>`);
     }
-    return names.join(', ');
+    let stuff = `<ul>${names.join('\n')}</ul>`
+
+    return stuff;
 
 }
 function clickname(li,i){
@@ -72,13 +74,17 @@ function clickname(li,i){
 }
 
 function addname(){
+  if (validateName(model.input.name)=== true){
     if (model.input.isMale !== null){
         model.input.isMale === true ?
             model.maleNames.push( {name :` ${model.input.name}`,isMale: true }) :
             model.femaleNames.push( {name :` ${model.input.name}`,isMale: false });
     }else{
         alert(`du må velge en radioknapp!`);
-    }
+    }}else{
+      alert('ugyldig navn')
+
+  }
     updateViews();
 }
 function checkRadioModify() {
@@ -94,9 +100,18 @@ function deleteName(li,i) {
 
 }
 function modifyName(li,i,newName) {
-    model[li][i].name = newName;
+    if(newName !== null && validateName(newName)) {
+    model[li][i].name = newName;}
 }
 function modifyNamePrompt(li,i){
     let result =    prompt('angi nytt navn');
-    modifyName(li,i,result);
+    if(result !== null) {
+        modifyName(li, i, result);
+    }}
+function validateName(valname) {
+    for (let char of valname){
+        if(!(model.alphabet.includes(char.toLowerCase()))) return false
+
+    }
+    return true
 }
