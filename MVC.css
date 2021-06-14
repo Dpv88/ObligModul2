@@ -1,21 +1,21 @@
-#visningsDiv{
+#visningsDiv {
     border: black solid 2px;
     height: 20px;
     width: 100px;
 }
-#showBNames{
 
+#showBNames {
     float: left;
-
 }
-#showGNames{
 
+#showGNames {
     float: left;
-
 }
-#newline{
+
+#newline {
     clear: left;
 }
+
 body {
-    background-color: darkgray ;
+    background-color: darkgray;
 }

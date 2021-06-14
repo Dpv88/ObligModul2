@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Test Suite</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.16.0.css">
+<body>
+<div id="qunit"></div>
+<div id="qunit-fixture"></div>
+<script src="Model.js"></script>
+<script src="controller.js"></script>
+<script src="https://code.jquery.com/qunit/qunit-2.16.0.js"></script>
+<script>
+    function updateViews() {
+    }
+
+    QUnit.test('feil ved å legge til ugyldig navn', function (assert) {
+        model.input.name = '81549300';
+        model.input.isMale = true;
+        let success = addname()
+        assert.false(success, 'addname not successful');
+    });
+
+    QUnit.test('Legge til gyldig navn', function (assert) {
+        model.input.name = 'Alex';
+        model.input.isMale = true;
+        assert.true(addname(), 'addname successful');
+    });
+    QUnit.test('Endre guttenavn gyldig input', function (assert) {
+        assert.true(modifyName('maleNames', 0, 'Geir'), 'Byttet navn');
+    });
+    QUnit.test('Feilet endre guttenavn med ugyldig input ', function (assert) {
+
+        assert.false(modifyName('maleNames', 0, '81549300'), 'vil ikke bytte navn');
+    });
+
+
+</script>
+</body>
